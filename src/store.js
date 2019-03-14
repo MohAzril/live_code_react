@@ -8,6 +8,7 @@ const initialState ={
     is_login:false,
     full_name:"",
     email:"",
+    avatar:"",
     username:"",
     password:"",
     listNews:[],
@@ -57,14 +58,17 @@ export const actions = store => ({
     },
 
     searchNews: async (state,keyword) => {
-        console.log("searchNews", keyword);
+        console.log("search Movie by", keyword);
         if(keyword.length>2){
             try{
                 const response = await axios.get(
-                    baseUrl+"everything?q="+keyword+ "&pageSize=3&"+ "apiKey=" + apiKey
+                    "https://api-todofancy.herokuapp.com/api/movies"
                 );
                 console.log(response);
-                store.setState({listNews:response.data.articles});
+                var mov = response.data.movies;
+                const result = mov.filter(mov => mov.Category == keyword);
+                console.log("hasil",result);
+                store.setState({listNews:result});
             }
             catch (error){
                 console.error(error);
@@ -75,15 +79,17 @@ export const actions = store => ({
     signIn: async state => {
         // const data = {username:state.username,password:state.password};
         await axios
-        .post("https://mocktofu1.free.beeceptor.com/login")
+        // .post("https://mocktofu1.free.beeceptor.com/login")
+        .post("https://mocktofu2.free.beeceptor.com/auth")
         .then(response => {
             console.log("respon login",response.data);
-            if (response.data.hasOwnProperty("api_key")) {
+            if (response.data.hasOwnProperty("status")) {
                 store.setState({
                     is_login: true,
-                    api_key: response.data.api_key,
-                    full_name:response.data.full_name,
-                    email:response.data.email
+                    api_key: response.data.status,
+                    full_name:response.data.user_data.username,
+                    email:response.data.user_data.email,
+                    avatar:response.data.user_data.avatar
                 });
             }
         })

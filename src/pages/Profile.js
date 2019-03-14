@@ -19,6 +19,7 @@ class Profile extends Component {
                     }}>
                     Profile
                 </h1>
+                <img style={{height:500}} src={this.props.avatar} alt="Card image cap"/>
                 <p>
                     <label>Email:</label> {this.props.email}
                 </p>
@@ -31,5 +32,5 @@ class Profile extends Component {
 }
 }
 
-export default connect("is_login,email,full_name", actions)
+export default connect("is_login,email,full_name,avatar", actions)
 (withRouter(Profile));

@@ -63,9 +63,9 @@ render() {
                 </div>    
             </div>    
             {this.props.listNews.map((item,key) =>{
-                const src_img = item.urlToImage === null ? az : item.urlToImage;
-                const content = item.urlToImage !== null ? item.content : "";
-                return <ListNews key={key} title={item.title} img={src_img} content={content}/>;
+                const src_img = item.Poster === null ? az : item.Poster;
+                const content = item.Poster !== null ? item.Synopsis : "";
+                return <ListNews key={key} title={item.Title} category={item.Category} img={src_img} content={content}/>;
             })}
         </div>
 

@@ -61,9 +61,6 @@ const Header = props => {
                                     <Link to="/">Home</Link>
                                 </li>
                                 <li className="menu">
-                                    <Link to="/signup">SignUp</Link>
-                                </li>
-                                <li className="menu">
                                     <Link to="/signin">SignIn</Link>
                                 </li>
                                 <li className="menu">
@@ -73,12 +70,6 @@ const Header = props => {
                                     <Link to="/" onClick={() => props.postSignout()}>
                                     SignOut
                                     </Link>
-                                </li>
-                                <li className="menu">
-                                    <Link to="/news">News</Link>
-                                </li>
-                                <li className="menu">
-                                    <Link to="/category">Category</Link>
                                 </li>
                             </ul>
                         </nav>

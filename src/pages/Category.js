@@ -43,6 +43,7 @@ handleOnClick = e => {
     // let value = e.target.value;
     // this.props.setField(e);
     this.props.searchNews(e.target.value);
+    this.props.history.replace("/"+e.target.value);
 };
 
 render() {
@@ -56,38 +57,39 @@ render() {
     <div className="Category">
         {/* <Header/> */}
         <div class="container-fluid">
-        <div class="row">
-        
-        <div class="col-md-8">
-            <h1 class="my-4">Laba-laba Beracun <small> Dibakar Hidup-Hidup</small></h1>
-            <div class="card mb-4">
-                <img class="card-img-top" src={require("../images/berita1.jpg")} alt="Card image cap"/>
+        <div class="card-deck my-4">
+            <div class="card">
+                <img class="card-img-top" src="https://m.media-amazon.com/images/M/MV5BOWJhMjJjMDItODQxYS00ODIyLWJhYzAtNTliMDhkZjM0YTA1XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg" alt="Card image cap"/>
                 <div class="card-body">
-                    <h2 class="card-title">Post Title</h2>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                    <a href="#" class="btn btn-primary">Read More &rarr;</a>
+                <h5 class="card-title">Romance</h5>
+                <button className="btn btn-primary" name="search" value="romance" onClick={(e)=>this.handleOnClick(e)}>romance</button>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                 </div>
-                <div class="card-footer text-muted">
-                    Posted on January 1, 2017 by
-                    <a href="#">Start Bootstrap</a>
-                </div>    
-            </div>    
-            {this.props.listNews.map((item,key) =>{
-                const src_img = item.urlToImage === null ? az : item.urlToImage;
-                const content = item.urlToImage !== null ? item.content : "";
-                return <ListNews key={key} title={item.title} img={src_img} content={content}/>;
-            })}
-        </div>
-
-        
-        <div class="col-md-4">
-            {/* <Search/> */}
-            <button className="btn btn-primary" name="search" value="SepakBola" onClick={(e)=>this.handleOnClick(e)}>SepakBola</button>
-            <button className="btn btn-primary" name="search" value="Meme" onClick={(e)=>this.handleOnClick(e)}>Meme</button>
-            <button className="btn btn-primary" name="search" value="Thailand" onClick={(e)=>this.handleOnClick(e)}>Shawdikap</button>
-            {/* <SideList/> */}
-        </div>
-        
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="https://m.media-amazon.com/images/M/MV5BZmEzNjhiZWEtNTM5OS00ZmQyLThhYjEtNjY4ZDZhOGFkMzI4XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg" alt="Card image cap"/>
+                <div class="card-body">
+                <h5 class="card-title">Action</h5>
+                <button className="btn btn-primary" name="search" value="action" onClick={(e)=>this.handleOnClick(e)}>action</button>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="https://m.media-amazon.com/images/M/MV5BMjM2MDgxMDg0Nl5BMl5BanBnXkFtZTgwNTM2OTM5NDE@._V1_SX300.jpg" alt="Card image cap"/>
+                <div class="card-body">
+                <h5 class="card-title">Fiction</h5>
+                <button className="btn btn-primary" name="search" value="fiction" onClick={(e)=>this.handleOnClick(e)}>fiction</button>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="https://m.media-amazon.com/images/M/MV5BNTAyNDM0OGMtMmQ5OS00OGJiLTljMDUtY2Y1OTFlYmM2ZTk2XkEyXkFqcGdeQXVyNjUwNzk3NDc@._V1_SX300.jpg" alt="Card image cap"/>
+                <div class="card-body">
+                <h5 class="card-title">Comedy</h5>
+                <button className="btn btn-primary" name="search" value="comedy" onClick={(e)=>this.handleOnClick(e)}>comedy</button>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+            </div>
         </div>
         </div>
         <Footer/>

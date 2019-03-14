@@ -22,8 +22,8 @@ const ListNews = props => {
             <a href="#" class="btn btn-primary">Read More &rarr;</a>
           </div>
           <div class="card-footer text-muted">
-            Posted on January 1, 2017 by
-            <a href="#">Start Bootstrap</a>
+            Category:
+            <a href="#">{props.category}</a>
           </div>    
         </div>    
       </section>
